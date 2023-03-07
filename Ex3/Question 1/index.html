@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        table,tr,td{
+            border: 1px solid red;
+            border-style: dotted;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table align="center">
+            <tr>
+            <td onmouseover="changeColor(this,'#00008b')" onmouseout="changeColorBack(this)">#00008b</td>
+            <td onmouseover="changeColor(this,'	#006400	')" onmouseout="changeColorBack(this)">#006400</td>
+            <td onmouseover="changeColor(this,'	#8b008b')" onmouseout="changeColorBack(this)">#8b008b</td>
+            </tr>
+            <tr>
+                <td onmouseover="changeColor(this,'	#ffd700')" onmouseout="changeColorBack(this)">#ffd700</td>
+                <td onmouseover="changeColor(this,'	#87cefa')" onmouseout="changeColorBack(this)">#87cefa</td>
+                <td onmouseover="changeColor(this,'	#00ff00')" onmouseout="changeColorBack(this)">#00ff00</td>
+            </tr>
+            <tr>
+                <td onmouseover="changeColor(this,'#B22222')" onmouseout="changeColorBack(this)">#B22222</td>
+                <td onmouseover="changeColor(this,'#FF69B4')" onmouseout="changeColorBack(this)">#FF69B4</td>
+                <td onmouseover="changeColor(this,'#FFFACD')" onmouseout="changeColorBack(this)">#FFFACD</td>
+            </tr>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

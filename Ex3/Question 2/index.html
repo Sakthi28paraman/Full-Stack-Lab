@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav-bar{
+            display: flex; gap: 20px; justify-content: center;
+        }
+        .nav-links{
+            text-decoration:none;
+            color:black;
+        }
+        .project-links{
+            text-decoration: underline;
+            color:white;
+        }
+        .nav-elements{
+            padding: 20px 30px;
+            background-color:khaki;
+            border-radius: 10%;
+        }
+        .drop-down-div1{
+            display: none;
+            max-width: 50px;
+            z-index: 1;
+        }
+        .drop-down-div1 a{
+            text-decoration: none;
+            display: block;
+            padding: 10px 0px;
+            text-align: left;   
+        }
+        #department:hover .drop-down-div1{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="nav-bar">
+          <a class="nav-links" href="#Home-div"><div class="nav-elements">Home</div></a>
+          <a class="nav-links" href="#About-Us-div"><div class="nav-elements">About Us</div></a>
+          <a class="nav-links" href="#Awards-div"><div class="nav-elements">Awards</div></a>
+          <a class="nav-links" href="#Academics-div"><div class="nav-elements">Academics</div></a>
+          <a class="nav-links" href="">
+            <div class="nav-elements" id="department">
+                Department
+                <div class="drop-down-div1">
+                   <a href="">AI&DS</a>
+                   <a href="">CSE</a>
+                   <a href="">MECH</a>
+                   <a href="">IT</a>
+                   <a href="">EEE</a>
+                </div>
+            </div>
+            </div>
+          </a>
+        </nav>
+    </div>
+</body>
+</html>
