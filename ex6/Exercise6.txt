@@ -1,0 +1,113 @@
+Survey:
+
+Survey.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+</head>
+<body>
+    <form action="/sendsurvey" method="post">
+        <table>
+            <tr>
+                <td>
+                    Name: 
+                </td>
+                <td>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email ID: 
+                </td>
+                <td>
+                    <input type="email" name="mail" id="mail">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone No: 
+                </td>
+                <td>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{10}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Do you Know martial arts :
+                </td>
+                <td>
+                    <input type="radio" name="know" id="yes_id" value="yes">Yes 
+                    <input type="radio" name="know" id="no_id" value="no">No
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    Choose the martial arts you know:
+                </td>
+                <td>
+                    <input type="checkbox" name="ma" id="ma1" value="karate"> Karate <br>
+                    <input type="checkbox" name="ma" id="ma2" value="kung Fu">Kung Fu <br>
+                    <input type="checkbox" name="ma" id="ma3" value="muay thai">Muay Thai <br>
+                    <input type="checkbox" name="ma" id="ma4" value="Jeet Kune Do">Jeet Kune Do
+                </td>
+            </tr>
+            <tr>
+                <td>How much do you pratice a day:</td>
+                <td>
+                    <input type="number" name="pratice" id="pratice">
+                </td>
+            </tr>
+            <tr>
+                <td>What difference that martial art made in your life</td>
+                <td><textarea name="effect" id="effect" cols="40" rows="10"></textarea></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+Server.js
+
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+
+app = express();
+app.use(bodyParser.urlencoded({extended:true}));
+mongoose.connect("mongodb://0.0.0.0:27017/FSD");
+const response = mongoose.model('survey',new mongoose.Schema({
+                    name: String,
+                    mail : String,
+                    phone : Number,
+                    know : String,
+                    ma : Array,
+                    pratice : Number,
+                    effect : String
+                }));
+
+app.get('/', (req,res
+    )=>{
+    res.sendFile(__dirname+'/survey.html');
+})
+app.listen(3000,()=>{
+    console.log("Server is listening to port 3000");
+})
+app.post('/sendsurvey',async(req,res)=>{
+    // console.log("hello")
+    let data ={...req.body}
+    // console.log("hello")
+    await new response(data).save();
+    console.log(data);  
+    console.log(await response.find());
+    res.send()
+})
+
+
